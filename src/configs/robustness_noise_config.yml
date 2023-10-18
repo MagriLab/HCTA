@@ -1,0 +1,6 @@
+name: robustness_noise
+N_runs: 5
+data_config:
+    noise_std: [5,10,20,40]
+train_config:
+    lambda_pi: [0.0001,0.001,0.01,0.1,1]

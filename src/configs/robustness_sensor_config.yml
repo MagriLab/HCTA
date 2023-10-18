@@ -1,0 +1,8 @@
+name: robustness_sensor
+N_runs: 1
+data_config:
+    N_sensors: [2,5,11,23]
+model_config:
+    N_g: [5,10,20]
+train_config:
+    lambda_pi: [0,0.0001]

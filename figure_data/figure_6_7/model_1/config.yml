@@ -1,0 +1,43 @@
+data_config:
+  data_type: 'rijke'
+  data_path: 'data/rijke_kings_beta_5_7_tau_0_2.h5' # load the data from
+  dt: 0.01 # sampling time (dimensional)
+  standardise: False
+  noise:
+    pressure_std: 0 # percentage standard deviation of the Gaussian noise to add on pressure
+    pressure_seed: 1 # seed of the noise on pressure
+    velocity_std: 0 # percentage standard deviation of the Gaussian noise to add on velocity
+    velocity_seed: 2 # seed of the noise on velocity
+  train_length: 4 # length of the time series used for training (non-dimensional)
+  interp_val_split: 0.2 # how much of the training data we allocate to validation of interpolation
+  interp_val_split_seed: 1 # seed of the train and validation split
+  val_length: 4 # length of the time series used for validation (non-dimensional)
+  test_length: 4 # length of the time series used for test (non-dimensional)
+  batch_size: 64 # batch size
+  observe: 'both' # which variables are observed 'both', 'p', or 'u'
+  boundary: True # whether to include boundary data or not
+
+model_config:
+  model_type: 'fnn' # type of model; 'fnn', 'gnn'
+  model_path: 'figure_data/figure_6_7/model_1' # save the model weights to
+  N_g: 0 # number of Galerkin modes (only valid for 'gnn')
+  use_mean_flow: False # if True, mean density is used to generate the piece-wise Galerkin modes (only valid for 'gnn')
+  use_jump: False # if True, jump modes are used for velocity (only valid for 'gnn')
+  N_layers: 3 # number of hidden layers, i.e., not including output layer
+  N_neurons: [32,32,32] # number of neurons in each hidden layer
+  activations: ['sin','sin','sin'] # activations in each hidden layer
+  a: 10 # hyperparameter for sine activation
+  regularizers: ['None','None','None','None'] # regularizers in each layer
+  lambdas: [0,0,0,0] # regularization coefficient in each layer
+  initializers: ['periodic_uniform','periodic_uniform','periodic_uniform','periodic_uniform'] # weight initializers in each layer
+  dropout_rate: 0 # drop out
+
+train_config:
+  learning_rate: 0.001
+  learning_rate_schedule: 'constant' # 'constant' or 'exponential_decay'
+  epochs: 500
+  save_epochs: [1,10,50,100,200,300,500,800,1000,1500,2000,2500,3000,3500,4000,4500,5000,7500,10000]
+  lambda_dd: 1
+  lambda_m: 0
+  lambda_e: 0
+  sampled_batch_size: 0

@@ -1,0 +1,9 @@
+pathtools
+pickleshare
+scikit-learn
+scipy
+tensorflow
+numpy
+h5py
+matplotlib
+wandb

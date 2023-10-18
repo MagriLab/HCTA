@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+package = ["src/hcta"]
+
+[project]
+name = "hcta"
+version = "0.0.1"
+description = "Code for hard-constrained neural networks for thermoacoustics."
+
+authors = [
+    { name = "Defne Ege Ozan", email = "d.ozan@imperial.ac.uk" }
+]
+
+requires-python = ">=3.9"
+
+dependencies = [
+    "hatch",
+    "pathtools",
+    "pickleshare",
+    "scikit-learn",
+    "scipy",
+    "tensorflow",
+    "numpy",
+    "h5py",
+    "wandb",
+    "matplotlib==3.5.1",
+]
+
+dev = [
+    "pre-commit",
+]
+
+[project.urls]
+repository = "https://github.com/magrilab/HCTA"

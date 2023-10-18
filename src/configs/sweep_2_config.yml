@@ -1,0 +1,9 @@
+name: sweep_2
+N_runs: 1
+model_config:
+  N_layers: [1,2,3]
+  N_neurons: [32,64,128]
+  activations: ['tanh','relu','sin']
+  lambdas: [0]
+train_config:
+  learning_rate: [0.01,0.001]
