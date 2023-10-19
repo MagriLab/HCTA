@@ -7,6 +7,6 @@ env
 **/logs**
 data
 *.png
+!image.png
 *.h5
 *.mat
-

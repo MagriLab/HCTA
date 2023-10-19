@@ -17,14 +17,12 @@ def main(args):
     # load the base config file at the start
     base_cfg = config.yaml2dict(args.base_config_path)
     base_model_path = base_cfg["model_config"]["model_path"]
-    for (lr_idx, lr) in enumerate(sweep_cfg["train_config"]["learning_rate"]):
+    for lr_idx, lr in enumerate(sweep_cfg["train_config"]["learning_rate"]):
         base_cfg["train_config"]["learning_rate"] = lr
-        for (pi_idx, lambda_pi) in enumerate(sweep_cfg["train_config"]["lambda_pi"]):
+        for pi_idx, lambda_pi in enumerate(sweep_cfg["train_config"]["lambda_pi"]):
             base_cfg["train_config"]["lambda_m"] = lambda_pi
             base_cfg["train_config"]["lambda_e"] = lambda_pi
-            for (bs_idx, batch_size) in enumerate(
-                sweep_cfg["data_config"]["batch_size"]
-            ):
+            for bs_idx, batch_size in enumerate(sweep_cfg["data_config"]["batch_size"]):
                 base_cfg["data_config"]["batch_size"] = batch_size
                 base_cfg["train_config"]["sampled_batch_size"] = batch_size
                 for run_idx in range(sweep_cfg["N_runs"]):
@@ -66,7 +64,7 @@ if __name__ == "__main__":
         "--base-config-path", type=Path, default="src/configs/config.yml"
     )
     parser.add_argument(
-        "--sweep-config-path", type=Path, default="src/configs/sweep_config_new.yml"
+        "--sweep-config-path", type=Path, default="src/configs/sweep_2_config.yml"
     )
     # arguments for weights and biases
     parser.add_argument("--wandb-entity", default=None, type=str)

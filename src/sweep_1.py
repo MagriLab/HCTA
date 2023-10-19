@@ -1,5 +1,4 @@
 import argparse
-
 from pathlib import Path
 
 import tensorflow as tf
@@ -144,11 +143,9 @@ def main(args):
             for acts in sweep_cfg["model_config"]["activations"]:
                 n_iter += 1
                 run_flag = set_activations(acts, N_layers, config_dict=base_cfg)
-                for (lmbds_idx, lmbds) in enumerate(
-                    sweep_cfg["model_config"]["lambdas"]
-                ):
+                for lmbds_idx, lmbds in enumerate(sweep_cfg["model_config"]["lambdas"]):
                     set_regularizations(lmbds, N_layers, config_dict=base_cfg)
-                    for (lr_idx, lr) in enumerate(
+                    for lr_idx, lr in enumerate(
                         sweep_cfg["train_config"]["learning_rate"]
                     ):
                         set_learning_rate(lr, config_dict=base_cfg)
@@ -194,7 +191,7 @@ if __name__ == "__main__":
         "--base-config-path", type=Path, default="src/configs/config.yml"
     )
     parser.add_argument(
-        "--sweep-config-path", type=Path, default="src/configs/sweep_config.yml"
+        "--sweep-config-path", type=Path, default="src/configs/sweep_1_config.yml"
     )
     # arguments for weights and biases
     parser.add_argument("--wandb-entity", default=None, type=str)

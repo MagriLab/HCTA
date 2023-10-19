@@ -118,9 +118,9 @@ def surf_v2(
         linewidth=1,
         antialiased=False,
     )
-    # ax.w_xaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
-    # ax.w_yaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
-    # ax.w_zaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
+    ax.w_xaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
+    ax.w_yaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
+    ax.w_zaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
     cbar = fig.colorbar(surf1, shrink=0.5, aspect=10, pad=0.1)  # pad = 0.2
     cbar.ax.tick_params(labelsize=fontsize)
     cbar.ax.locator_params(nbins=4)
@@ -303,7 +303,7 @@ def plot_2d_v2(
                 zorder=1,
             )
         if Z_pred_list is not None:
-            for (Z_pred_, pred_color, pred_linestyle, pred_linewidth) in zip(
+            for Z_pred_, pred_color, pred_linestyle, pred_linewidth in zip(
                 Z_pred_list, pred_colors, pred_linestyles, pred_linewidths
             ):
                 ax.plot(
@@ -352,7 +352,7 @@ def plot_2d_v2(
                 zorder=1,
             )
         if Z_pred_list is not None:
-            for (Z_pred_, pred_color, pred_linestyle, pred_linewidth) in zip(
+            for Z_pred_, pred_color, pred_linestyle, pred_linewidth in zip(
                 Z_pred_list, pred_colors, pred_linestyles, pred_linewidths
             ):
                 ax.plot(
@@ -411,7 +411,7 @@ def plot_2d_v2(
                     zorder=1,
                 )
             if Z_pred_list is not None:
-                for (Z_pred_, pred_color, pred_linestyle, pred_linewidth) in zip(
+                for Z_pred_, pred_color, pred_linestyle, pred_linewidth in zip(
                     Z_pred_list, pred_colors, pred_linestyles, pred_linewidths
                 ):
                     inset_axes1.plot(
@@ -450,7 +450,7 @@ def plot_2d_v2(
                     zorder=2,
                 )
             if Z_pred_list is not None:
-                for (Z_pred_, pred_color, pred_linestyle, pred_linewidth) in zip(
+                for Z_pred_, pred_color, pred_linestyle, pred_linewidth in zip(
                     Z_pred_list, pred_colors, pred_linestyles, pred_linewidths
                 ):
                     inset_axes1.plot(
