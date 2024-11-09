@@ -1,6 +1,6 @@
 # HCTA: Hard-constrained neural networks for thermoacoustics
 
-Repository for [<em>Hard-constrained neural networks for modelling nonlinear acoustics</em>, D.E. Ozan and L. Magri (2023).](https://arxiv.org/abs/2305.15511)
+Repository for [<em>Hard-constrained neural networks for modelling nonlinear acoustics</em>, Phys. Rev. Fluids 8, 103201, D.E. Ozan and L. Magri (2023).](https://doi.org/10.1103/PhysRevFluids.8.103201)
 
 In this work, we model acoustic and thermoacoustic pressure and velocity oscillations from synthetic data. The synthetic data captures the rich nonlinear behaviour of thermoacoustic oscillations observed in propulsion and power generation. We develop acoustic neural networks, in which prior physical knowledge is embedded as both soft and hard constraints. We predict and extrapolate in time thermoacoustic oscillations, reconstruct pressure and velocity over the entire domain from pressure sensors only, and obtain a model that is robust to noise and generalizable to unseen scenarios.
 <p align="center">
